@@ -1,0 +1,29 @@
+interface IConnection { 
+  char get(int index); 
+  void set(int index, char c); 
+  int length(); 
+} 
+class Database { 
+  private char[] tab = new char[100]; 
+  /* ... */ 
+  public static IConnection getConnection() { 
+     return Connection.getInstance(); 
+  } 
+  private static class Connection implements IConnection { 
+    private Database db; 
+    /* ... */ 
+    public static IConnection getInstance(){
+      /* ... */ 
+    } 
+    public char get(int index) { 
+      return db.tab[index]; 
+    } 
+    public void set(int index, char c) {
+      db.tab[index] = c; 
+    }
+    public int length() { 
+      return db.tab.length; 
+    } 
+  } 
+} 
+ 
